@@ -2,9 +2,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+
 import App from './App'
 
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 // 1. 定义（路由）组件。
 // 可以从其他文件 import 进来

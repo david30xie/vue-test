@@ -10,16 +10,30 @@
     </p>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
+    <router-view>
+      <ul>
+        <li v-for="comment in comments">{{ comment.text }}</li>
+      </ul>
+    </router-view>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-
 export default {
-  components: {
-    Hello
+  data () {
+    return {
+      comments: []
+    }
+  },
+  mounted () {
+    this.$http.get('http://localhost:3000/api/comments').then(
+      (response) => {
+        this.comments = response.body.json()
+      },
+      (response) => {
+
+      }
+    )
   }
 }
 </script>
