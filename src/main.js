@@ -8,8 +8,8 @@ Vue.use(VueRouter)
 
 // 1. 定义（路由）组件。
 // 可以从其他文件 import 进来
-const Foo = { render: '<div>foo</div>' }
-const Bar = { render: '<div>bar</div>' }
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
 
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
