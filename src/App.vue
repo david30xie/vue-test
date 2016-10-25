@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="test">
     <h1>Hello App!</h1>
     <p>
       <!-- 使用 router-link 组件来导航. -->
@@ -8,9 +8,8 @@
       <router-link to="/foo">Go to Foo</router-link>
       <router-link to="/bar">Go to Bar</router-link>
     </p>
-    <!-- 路由出口 -->
-    <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view>
+      <h2>Hello again?</h2>
       <ul>
         <li v-for="comment in comments">{{ comment.text }}</li>
       </ul>
@@ -19,6 +18,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+
 export default {
   data () {
     return {
@@ -26,14 +27,14 @@ export default {
     }
   },
   mounted () {
-    this.$http.get('http://localhost:3000/api/comments').then(
-      (response) => {
-        this.comments = response.body.json()
-      },
-      (response) => {
-
+    $.ajax({
+      url: 'http://localhost:3000/api/comments',
+      dataType: 'json',
+      type: 'GET',
+      success: function (data) {
+        this.comments = data
       }
-    )
+    })
   }
 }
 </script>
