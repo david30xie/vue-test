@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
 import App from './App'
+import Comment from './components/Comment'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -21,6 +22,7 @@ const Bar = { template: '<div>bar</div>' }
 // 我们晚点在讨论嵌套路由。
 const routes = [
   { path: '/', component: App },
+  { path: '/comments/:id', component: Comment, name: 'comment' },
   { path: '/foo', component: Foo },
   { path: '/bar', component: Bar }
 ]

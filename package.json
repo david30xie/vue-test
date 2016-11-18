@@ -15,7 +15,8 @@
   "dependencies": {
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3",
-    "vue-router": "^2.0.0"
+    "vue-router": "^2.0.2",
+    "vue-ssr": "^0.2.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

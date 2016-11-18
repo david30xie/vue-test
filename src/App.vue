@@ -10,11 +10,14 @@
     </p>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view>
+    <router-view></router-view>
+    <div>
       <ul>
-        <li v-for="comment in comments">{{ comment.text }}</li>
+        <li v-for="comment in comments">
+          <router-link :to="{ name: 'comment', params: { id: comment.id } }">{{ comment.text }}</router-link>
+        </li>
       </ul>
-    </router-view>
+    </div>
   </div>
 </template>
 
@@ -28,7 +31,7 @@ export default {
   mounted () {
     this.$http.get('http://localhost:3000/api/comments').then(
       (response) => {
-        this.comments = response.body.json()
+        this.comments = response.body
       },
       (response) => {
 
